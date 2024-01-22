@@ -8,14 +8,12 @@
 }
 
 :root {
-    --primary: rgb(30, 30, 30);
-    --secondary-bg: rgb(54, 54, 54);
-    --main-bg: rgb(36, 36, 36);
+    --main-bg: rgb(30, 30, 30);
+    --secondary-bg: rgb(65, 65, 65);
 
     --primary-text: rgb(250, 250, 250);
     --highlight: rgb(255, 211, 219);
-
-    --sidebar: rgb(70, 60, 70);
+    --sidebar: #804476;
 }
 
 body {
@@ -23,7 +21,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
     grid-template-rows: auto 1fr;
 
-    background-color: var(--primary);
+    background-color: var(--main-bg);
     color: var(--primary-text);
 
     min-height: 100dvh;
@@ -34,7 +32,7 @@ a {
     color: var(--primary-text);
 }
 
-li:hover > a,  li:hover > svg, li:hover, a:hover {
+li:hover > a,  li:hover > svg, li:hover, a:hover, svg:hover {
     color: var(--highlight);
     fill: var(--highlight);
     cursor: pointer;
@@ -54,9 +52,8 @@ svg {
     fill: var(--primary-text);
 }
 
-hr {
-    border: 1px solid gray;
-    opacity: .2;
+.line {
+    border: 1px solid rgba(128, 128, 128, .2);
 }
 
 /* Header */
@@ -72,11 +69,14 @@ header {
 
     position: sticky;
     top: 0;
+
+    box-shadow: 0 0 30px var(--main-bg);
 }
 
 .top-header, .bottom-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .search {
@@ -118,6 +118,15 @@ header {
     font-weight: bold;
 }
 
+.greeting {
+    margin-right: 1rem;
+}
+
+.profile svg {
+    width: 1.6rem;
+    margin-right: 1rem;
+}
+
 .pfp img {
     width: 2.5rem;
     border-radius: 50%;
@@ -125,15 +134,19 @@ header {
     margin-right: 1rem;
 }
 
+.pfp:hover {
+    cursor: pointer;
+}
 
 .action-buttons {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
     gap: 20px;
 }
 
 .action-buttons > button {
-    padding: 8px 25px;
+    padding: 7px 20px;
+    height: fit-content;
     border: none;
     border-radius: 15px;
     font-weight: bold;
@@ -146,18 +159,23 @@ header {
     display: flex;
     flex-direction: column;
 
-    height: 100dvh;
     background-color: var(--sidebar);
+    height: 100dvh;
 
     position: sticky;
     top: 0;
     left: 0;
+
+    box-shadow: 0 0 30px var(--primary);
 }
 
 .logo {
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
+    
+    padding: .5rem;
+    padding-right: 1.5rem;
 }
 
 .logo h1 {
@@ -195,9 +213,6 @@ li > a {
 
 /* Main */
 main {
-    grid-column: 2 / 4;
-    grid-row: 2 / 4;
-
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: repeat(2, 1fr);
@@ -205,8 +220,6 @@ main {
 
     padding: 1rem;
     background-color: var(--primary-bg);
-
-    height: 100dvh;
 }
 
 main div h2 {
@@ -220,7 +233,7 @@ main div h2 {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
 }
 
@@ -233,12 +246,6 @@ main div h2 {
 }
 
 /* Announcements / Trending */
-/* aside {
-    position: sticky;
-    top: 155px;
-} */
-
-
 .announcements {
     grid-column: 2 / 3;
 
@@ -256,4 +263,24 @@ main div h2 {
 
     display: grid;
     gap: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+    .logo h1, li a {
+        display: none;
+    }
+
+    .logo, .logo svg {
+        padding: 0;
+        margin: 0;
+        align-self: center;
+    }
+
+    .logo svg {
+        padding: .5rem 0 1rem 0;
+    }
+
+    li svg {
+        width: 1.3rem;
+    }
 }

@@ -34,18 +34,41 @@ a {
     color: var(--primary-text);
 }
 
-a:hover {
+li:hover > a,  li:hover > svg, li:hover {
     color: var(--highlight);
+    fill: var(--highlight);
+    cursor: pointer;
 }
 
-hr {
-    border: 1px solid gray;
-    opacity: .2;
+li:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--highlight);
+}
+
+li {
+    padding: 1.1rem;
+}
+
+li > svg {
+    width: 1rem;
+}
+
+li > a {
+    margin-left: 1rem;
 }
 
 button:hover {
     cursor: pointer;
     background-color: var(--highlight);
+}
+
+svg {
+    fill: var(--primary-text);
+}
+
+hr {
+    border: 1px solid gray;
+    opacity: .2;
 }
 
 /* Header */
@@ -65,11 +88,33 @@ header {
     justify-content: space-between;
 }
 
-.search > input {
-    padding: 10px;
+.search {
+    display: flex;
+}
+
+.search svg {
+    width: 2rem;
+}
+
+.search {
+    display: flex;
+    background-color: white;
+    padding: .2rem;
+    margin-right: .2rem;
+    border-radius: 1.5rem;
+}
+
+.search input {
     border: none;
     outline: none;
-    border-radius: 15px;
+    background-color: none;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.search svg {
+    fill: rgb(184, 184, 184);
+    width: 1.5rem;
 }
 
 .profile, .greeting{
@@ -95,17 +140,38 @@ header {
 .sidebar {
     grid-row: 1 / 4;
 
-    display: grid;
-    grid-template-rows: 1fr 3fr 1.5fr;
-    gap: 50px;
+    display: flex;
+    flex-direction: column;
 
-    padding: 1rem;
+    height: 100dvh;
     background-color: var(--sidebar);
+
+    position: sticky;
+    top: 0;
+    left: 0;
+
 }
 
-.sidebar ul {
-    display: grid;
-    gap: 20px;
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo h1 {
+    margin-left: .6rem;
+}
+
+.logo svg {
+    width: 3.5rem;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
 }
 
 /* Main */

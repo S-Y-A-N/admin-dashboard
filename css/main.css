@@ -20,8 +20,8 @@
 
 body {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: repeat(3, min-content);
+    grid-template-columns: repeat(auto-fit, minmax(min-content, 1fr));
+    grid-template-rows: auto 1fr;
 
     background-color: var(--primary);
     color: var(--primary-text);
@@ -34,7 +34,7 @@ a {
     color: var(--primary-text);
 }
 
-li:hover > a,  li:hover > svg, li:hover {
+li:hover > a,  li:hover > svg, li:hover, a:hover {
     color: var(--highlight);
     fill: var(--highlight);
     cursor: pointer;
@@ -42,24 +42,12 @@ li:hover > a,  li:hover > svg, li:hover {
 
 li:hover {
     background-color: rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--highlight);
-}
-
-li {
-    padding: 1.1rem;
-}
-
-li > svg {
-    width: 1rem;
-}
-
-li > a {
-    margin-left: 1rem;
 }
 
 button:hover {
     cursor: pointer;
-    background-color: var(--highlight);
+    background-color: var(--main-bg);
+    color: var(--primary-text);
 }
 
 svg {
@@ -90,6 +78,8 @@ header {
 
 .search {
     display: flex;
+    justify-content: space-between;
+    width: 40%;
 }
 
 .search svg {
@@ -149,7 +139,6 @@ header {
     position: sticky;
     top: 0;
     left: 0;
-
 }
 
 .logo {
@@ -159,11 +148,13 @@ header {
 }
 
 .logo h1 {
-    margin-left: .6rem;
+    margin: .7rem;
+    margin-left: .3rem;
 }
 
 .logo svg {
-    width: 3.5rem;
+    width: 3rem;
+    margin-left: .3rem;
 }
 
 .sidebar nav {
@@ -172,6 +163,21 @@ header {
     justify-content: space-between;
 
     height: 100%;
+}
+
+.sidebar li {
+    display: flex;
+    align-content: center;
+
+    padding: 1.1rem;
+}
+
+li > svg {
+    width: 1rem;
+}
+
+li > a {
+    margin-left: 1rem;
 }
 
 /* Main */

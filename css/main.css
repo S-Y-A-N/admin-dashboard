@@ -243,6 +243,17 @@ main div h2 {
 
     border-radius: 7px;
     border-left: 5px solid var(--highlight);
+
+    display: grid;
+    gap: 1rem;
+}
+
+.card-actions {
+    justify-self: end;
+}
+
+.card-actions svg {
+    width: 1.5rem;
 }
 
 /* Announcements / Trending */

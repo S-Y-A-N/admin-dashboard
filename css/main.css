@@ -139,7 +139,7 @@ header {
 
 .action-buttons {
     display: grid;
-    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
@@ -149,6 +149,7 @@ header {
     border: none;
     border-radius: 15px;
     font-weight: bold;
+    text-align: center;
 }
 
 /* Sidebar */
@@ -163,7 +164,6 @@ header {
 
     position: sticky;
     top: 0;
-    left: 0;
 
     box-shadow: 0 0 30px var(--primary);
 }
